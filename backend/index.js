@@ -47,14 +47,16 @@ app.post('/todos', async function(req, res) {
 
 app.put('/completed', async function(req, res) {
    const updatePayload = req.body;
-   const parsedPayload = updateTodo.parse(updatePayload);
+   const parsedPayload = updateTodo.safeParse(updatePayload);
    if(!parsedPayload.success){
       res.status(411).json({
          success: false,
          msg: "Invalid id"
       })
    }
-   // update todo
+   // // update todo
+   // const todo = await Todo.findById("65970500807269f2afe41a12");
+   // console.log(todo);
    await Todo.findByIdAndUpdate({_id: updatePayload.id}, {
       completed: true
    })
