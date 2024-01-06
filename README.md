@@ -8,7 +8,7 @@ Version 1.0.0
 - Anyone can see there existing todos
 - Anyone can mark a todo to be done
 
-Version 1.1.0
+Version 1.1.0 - started
 - Add Styling to v1.0.0
 
 Version 2.0.0
