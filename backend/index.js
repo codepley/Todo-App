@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const { createTodo, updateTodo } = require('./types');
 const Todo = require('./db');
 const app = express();
@@ -9,6 +10,7 @@ const PORT = 3000;
 
 // middlewares
 app.use(express.json());
+app.use(cors());
 
 // routes
 app.get('/', function(req, res) {
@@ -46,6 +48,7 @@ app.post('/todos', async function(req, res) {
 })
 
 app.put('/completed', async function(req, res) {
+   console.log("to complete")
    const updatePayload = req.body;
    const parsedPayload = updateTodo.safeParse(updatePayload);
    if(!parsedPayload.success){
